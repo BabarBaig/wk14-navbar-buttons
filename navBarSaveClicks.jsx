@@ -17,13 +17,7 @@ function NavBar(props) {
         <Button onClick={handleClick} key={index}>{listItems}</Button>
       );
     });
-  
-    // const updatedList = list.filter((listItems, index) => {
-    //     return (
-    //         <Button onClick={handleClick} key={index}>{listItems}</Button>
-    //     );
-    // });
-  
+    
     // note that React needs to have a single Parent
     return <ul>{updatedList}</ul>;
     }

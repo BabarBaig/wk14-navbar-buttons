@@ -1,4 +1,4 @@
-// Ex 3 - write out all items with their stock number
+// Ex 3 - write out all items with their stock number.
 // provide a button and use onClick={moveToCart} to move 1 item into the Shopping Cart
 // use React.useState to keep track of items in the Cart.
 // use React.useState to keep track of Stock items
@@ -7,6 +7,7 @@ function NavBar({ stockitems }) {
   const [cart, setCart] = React.useState([]);
   const [stock, setStock] = React.useState(stockitems);
   const { Button } = ReactBootstrap;
+
   // event apple:2
   const moveToCart = e => {
     let [name, num] = e.target.innerHTML.split(":"); // innerHTML should be format name:3
@@ -18,6 +19,7 @@ function NavBar({ stockitems }) {
     });
     setStock(newStock);
   };
+
   const updatedList = stock.map((item, index) => {
     return (
       <Button onClick={moveToCart} key={index}>
@@ -25,14 +27,14 @@ function NavBar({ stockitems }) {
       </Button>
     );
   });
+
   // note that React needs to have a single Parent
-  return (
-    <>
+  return (<>
       <ul style={{ listStyleType: "none" }}>{updatedList}</ul>
       <h1>Shopping Cart</h1>
-    </>
-  );
+  </>);
 }
+
 const menuItems = [
   { name: "apple", instock: 2 },
   { name: "pineapple", instock: 3 },
@@ -40,6 +42,7 @@ const menuItems = [
   { name: "peach", instock: 3 },
   { name: "orange", instock: 1 }
 ];
+
 ReactDOM.render(
   <NavBar stockitems={menuItems} />,
   document.getElementById("root")
